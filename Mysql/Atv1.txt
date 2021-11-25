@@ -1,0 +1,44 @@
+--Criação de banco de dados 
+create database db_rh 
+
+--Usando banco de dados para as querys 
+use db_rh;
+
+--criando tabela 
+
+create table tb_funcionarios(
+    id bigint (5) auto_increment,
+    nome varchar (20) not null, 
+    idade bigint (2),
+    sexo varchar (20) not null, 
+    cargo varchar (20) not null,
+    salario decimal (10,2), 
+    ativo boolean, 
+
+   primary key (id)
+);
+
+--Inserindo os valores da minha tabela 
+
+INSERT INTO (id,nome,idade,sexo,cargo,salario,ativo) VALUES (,"Jão",22,"masculino","auxiliar",1600.00,true);
+INSERT INTO (id,nome,idade,sexo,cargo,salario,ativo) VALUES (,"Karina",19,"feminio","secretaria',2000.00,true);
+INSERT INTO (id,nome,idade,sexo,cargo,salario,ativo) VALUES (,"Marcelo",18,"masculino","auxiliar",1100.00,true);
+INSERT INTO (id,nome,idade,sexo,cargo,salario,ativo) VALUES (,"Priscila",23,"feminino","gestora",2300.00,true);
+INSERT INTO (id,nome,idade,sexo,cargo,salario,ativo) VALUES (,"Mariana",25,"LGBTGI+","supervisora",2800.00,true);
+
+--Selecionando os dados da tabela 
+
+select * from tb_funcionarios 
+
+--Selecinando os funcionarios com salario maior que 2000
+
+select * from tb_funcionario salario > 2000
+
+--Selecionando os funcionarios com salario menor que 200
+
+select * from tb_funcionario salario < 2000
+
+--Atualizando um dado da tabela 
+
+update tb_funcionarios set cargo = auxiliar 
+   where id = 1;     

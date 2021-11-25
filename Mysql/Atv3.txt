@@ -1,0 +1,48 @@
+--Criação de banco de dados 
+create database db_escola
+
+--Usando banco de dados para as querys 
+use db_escola;
+
+--criando tabela 
+
+create table tb_estudantes (
+     id bigint (8) auto_increment,
+    nome varchar (20) not null,
+    idade bigint (2),
+    série varchar (20) not null, 
+    materia varchar (20) not null,
+    nota decimal (10,2),
+    ativo boolean, 
+    
+    primary key (id)
+); 
+
+--Inserindo os valores da minha tabela 
+
+insert into tb_estudantes (nome,idade,série,materia,nota,ativo) values ("Gustavo",14,"9° Série","Geografia",7.0,true);
+insert into tb_estudantes (nome,idade,série,materia,nota,ativo) values ("Marisa",14,"9° Série","Geografia",8.5,true);
+insert into tb_estudantes (nome,idade,série,materia,nota,ativo) values ("Michele",15,"1° Ensino Médio","História","9.0",true);
+insert into tb_estudantes (nome,idade,série,materia,nota,ativo) values ("Leandro",15,"1° Ensino Médio","História",6.7,true);
+insert into tb_estudantes (nome,idade,série,materia,nota,ativo) values ("Otávio",16,"2° Ensino Médio","Português",10.0,true);
+insert into tb_estudantes (nome,idade,série,materia,nota,ativo) values ("Rebeca",16,"2° Ensino Médio","Potuguês",8.0,true);
+insert into tb_estudantes (nome,idade,série,materia,nota,ativo) values ("Lucas",17,"3° Ensino Médio","Matématica",6.0,true);
+insert into tb_estudantes (nome,idade,série,materia,nota,ativo) values ("Vanessa",18,"3° Ensino Médio","Matématica",7.7,true);
+
+
+--Selecionando os dados da tabela 
+
+select * from tb_estudantes 
+
+--Selecinando notas maior que 7 
+
+select * from tb_estudantes where nota > 7
+
+--Selecionando produtos com valor menor que 500
+
+select * from tb_estudantes where nota < 7
+
+--Atualizando um dado da tabela 
+
+update tb_estudantes set nota = 7.0
+  where id = 4;
