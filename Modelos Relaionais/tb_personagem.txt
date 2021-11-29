@@ -1,0 +1,59 @@
+-- criando database
+create database db_generation_game_online;
+
+--usando database
+
+use db_generation_game_online;
+
+--criando tabela
+
+create table tb_personagem(
+	id bigint(5) auto_increment,
+    nome varchar(30) not null,
+    poderAtaque decimal (10,2),
+    poderDefesa decimal (10,2),
+    nivel bigint (3),
+    classe_id bigint not null,
+    
+    primary key (id),
+    foreign key (classe_id) references tb_classe (id)
+);
+
+--inserindo valores
+
+insert into tb_personagem (nome, poderAtaque, poderDefesa, nivel, classe_id) values ("Mulekin", 3500.00, 1912.22, 78, 1);
+insert into tb_personagem (nome, poderAtaque, poderDefesa, nivel, classe_id) values ("Gordox", 0001.01, 8999.99, 76, 2);
+insert into tb_personagem (nome, poderAtaque, poderDefesa, nivel, classe_id) values ("LeãoFaminto", 9999.99, 9999.99, 99, 3);
+insert into tb_personagem (nome, poderAtaque, poderDefesa, nivel, classe_id) values ("GabyHtinha", 6969.96, 1232.82, 57, 4);
+insert into tb_personagem (nome, poderAtaque, poderDefesa, nivel, classe_id) values ("Yasmãe", 4224.07, 3301.01, 59, 5);
+insert into tb_personagem (nome, poderAtaque, poderDefesa, nivel, classe_id) values ("YuriBack", 1234.12, 3789.99, 66, 5);
+insert into tb_personagem (nome, poderAtaque, poderDefesa, nivel, classe_id) values ("FeedMayq", 5432.12, 1832.22, 61, 3);
+insert into tb_personagem (nome, poderAtaque, poderDefesa, nivel, classe_id) values ("CostaCriticado", 2666.12, 1103.22, 32, 1);
+
+--selecionando tabela
+
+select * from tb_personagem;
+
+--selecionando personagens onde ataque maior que 2000
+
+select * from tb_personagem where poderAtaque > 2000;
+
+--selecionando personagems onde defesa entre 1000 e 2000
+
+select * from tb_personagem where poderDefesa > 1000 and poderDefesa < 2000;
+
+--selecionando personagem com a letra C.
+
+select * from tb_personagem where nome like "%c%";
+
+--select com Inner join entre tabela classe e personagem.
+
+select * from tb_personagem
+   inner join tb_classe on tb_classe.id = tb_personagem.classe_id
+
+--selecionando todos os personagem de uma classe específica
+
+
+select * from tb_personagem
+   inner join tb_classe on tb_classe.id = tb_personagem.classe_id
+   where tb_classe.classe like "%Arqueiro%"
